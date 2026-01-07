@@ -1,0 +1,121 @@
+@use "../global.scss" as *;
+
+.list {
+  background: $background-light;
+  border-radius: $radius-md;
+  width: 300px;
+  @include flex-col;
+  flex-shrink: 0;
+  max-height: calc(100vh - 120px);
+  transition: all $transition-base;
+
+  @media (max-width: 768px) {
+    width: 280px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+}
+
+.listHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  border-bottom: 1px solid $border-color;
+  flex-shrink: 0;
+}
+
+.listTitle {
+  flex: 1;
+  font-size: $font-size-lg;
+  font-weight: 600;
+  color: $text-primary;
+  @include truncate;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: $radius-sm;
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background-color: rgba($primary-color, 0.1);
+  }
+}
+
+.cardCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  background: $border-color;
+  color: $text-secondary;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.deleteButton {
+  @include button-reset;
+  width: 28px;
+  height: 28px;
+  @include flex-center;
+  border-radius: $radius-sm;
+  font-size: 20px;
+  color: $text-secondary;
+  cursor: pointer;
+  transition: all $transition-fast;
+  flex-shrink: 0;
+
+  &:hover {
+    background: rgba($danger-color, 0.1);
+    color: $danger-color;
+  }
+}
+
+.cardsContainer {
+  @include flex-col;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $border-color;
+    border-radius: $radius-sm;
+
+    &:hover {
+      background: $text-light;
+    }
+  }
+}
+
+.addCardButton {
+  @include button-reset;
+  padding: $spacing-md;
+  background: transparent;
+  color: $text-secondary;
+  font-size: $font-size-base;
+  font-weight: 500;
+  cursor: pointer;
+  border-top: 1px solid $border-color;
+  transition: all $transition-fast;
+  flex-shrink: 0;
+
+  &:hover {
+    background: rgba($primary-color, 0.1);
+    color: $primary-color;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}

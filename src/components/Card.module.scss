@@ -1,0 +1,94 @@
+@use "../global.scss" as *;
+
+.card {
+  @include card-base;
+  padding: $spacing-md;
+  cursor: grab;
+  transition: all $transition-base;
+  position: relative;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  &.dragging {
+    opacity: 0.5;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  }
+
+  &:hover {
+    box-shadow: $shadow-md;
+
+    .cardActions {
+      opacity: 1;
+    }
+  }
+}
+
+.cardContent {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-md;
+  margin-bottom: $spacing-sm;
+  position: relative;
+}
+
+.cardTitle {
+  flex: 1;
+  font-size: $font-size-base;
+  font-weight: 500;
+  color: $text-primary;
+  word-wrap: break-word;
+  line-height: 1.4;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: $radius-sm;
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background-color: rgba($primary-color, 0.1);
+  }
+}
+
+.commentBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: $primary-color;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.cardActions {
+  display: flex;
+  gap: $spacing-xs;
+  opacity: 1;
+  transition: opacity $transition-base;
+}
+
+.actionButton {
+  @include button-reset;
+  width: 28px;
+  height: 28px;
+  @include flex-center;
+  border-radius: $radius-sm;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all $transition-fast;
+  color: $text-light;
+  background: transparent;
+
+  &:hover {
+    background: $background-light;
+    color: $text-primary;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}

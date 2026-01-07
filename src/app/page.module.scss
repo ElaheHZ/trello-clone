@@ -1,0 +1,41 @@
+@use "../global.scss" as *;
+
+.boardPage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.homeButton {
+  position: fixed;
+  top: $spacing-lg;
+  left: $spacing-lg;
+  padding: $spacing-sm $spacing-md;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: $radius-md;
+  font-size: $font-size-base;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all $transition-base;
+  z-index: 10;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateX(-4px);
+  }
+
+  &:active {
+    transform: translateX(0);
+  }
+
+  @media (max-width: 480px) {
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-size-sm;
+    top: $spacing-md;
+    left: $spacing-md;
+  }
+}

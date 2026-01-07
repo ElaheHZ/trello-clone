@@ -1,0 +1,24 @@
+@use "../global.scss" as *;
+
+.inlineEditText {
+  cursor: pointer;
+  border-radius: $radius-sm;
+  padding: 2px 4px;
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background-color: rgba($primary-color, 0.1);
+  }
+
+  &:focus {
+    outline: 2px solid $primary-color;
+    outline-offset: 1px;
+  }
+}
+
+.inlineEditInput {
+  @include input-base;
+  width: 100%;
+  font-weight: inherit;
+  font-size: inherit;
+}

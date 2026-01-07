@@ -1,0 +1,118 @@
+$primary-color: #0052cc;
+$primary-dark: #003d99;
+$secondary-color: #f8f9fa;
+$text-primary: #172b4d;
+$text-secondary: #626f86;
+$text-light: #738496;
+$border-color: #dfe1e6;
+$background-light: #f7f8f9;
+$background-white: #ffffff;
+$success-color: #216e4e;
+$danger-color: #ae2a19;
+$warning-color: #974f0c;
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+$shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+$font-family: "Inter", system-ui, -apple-system, sans-serif;
+$font-size-sm: 12px;
+$font-size-base: 14px;
+$font-size-lg: 16px;
+$font-size-xl: 18px;
+$font-size-2xl: 24px;
+
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 12px;
+$spacing-lg: 16px;
+$spacing-xl: 24px;
+$spacing-2xl: 32px;
+
+$radius-sm: 3px;
+$radius-md: 6px;
+$radius-lg: 8px;
+
+$z-modal: 1000;
+$z-overlay: 999;
+$z-dropdown: 100;
+
+$transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin button-reset {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+@mixin card-base {
+  background: $background-white;
+  border: 1px solid $border-color;
+  border-radius: $radius-md;
+  box-shadow: $shadow-sm;
+  transition: all $transition-base;
+
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+}
+
+@mixin input-base {
+  padding: $spacing-sm $spacing-md;
+  border: 1px solid $border-color;
+  border-radius: $radius-sm;
+  font-family: $font-family;
+  font-size: $font-size-base;
+  color: $text-primary;
+  background: $background-white;
+  transition: all $transition-fast;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
+  }
+}
+
+@mixin responsive-padding {
+  padding: $spacing-lg;
+
+  @media (max-width: 768px) {
+    padding: $spacing-md;
+  }
+
+  @media (max-width: 480px) {
+    padding: $spacing-sm;
+  }
+}
